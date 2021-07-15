@@ -1,0 +1,1 @@
+This file was created by nodejs for training! I am appending this file into notes

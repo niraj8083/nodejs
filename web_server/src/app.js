@@ -1,52 +1,3 @@
-const path = require('path')
-
-//  const express = require('express')
-
-// // console.log(__dirname) //directory name
-// // console.log(__filename) //file name
-
-// console.log(__dirname) //directory name
-// console.log(path.join(__dirname,'../public')) //file name
- 
-// const app = express()
-
-// const publicDirectoryPath = path.join(__dirname,'../public')
-// app.use(express.static(publicDirectoryPath))
-
-// app.get( '' , (req, res) => {
-//     res.send('He hddfs!')
-// })
-// //app.com
-// //app.com/help
-// //app.com/about
-
-// // app.get('/help' , (req, res) => {
-// //     res.send('help page')
-// // })
-
-// // app.get('/about' , (req, res) => {
-// //     res.send('about page')
-// // })
-
-// app.get('/weather', (req, res) => {
-//     // Provide an object to send as JSON
-//     res.send([{
-//             forecast: 'It is snowing'
-//         },
-//         {
-//             Location: 'Philadelphia'
-//         }]
-//     )
-// })
-   
-
-// app.get('/weather', (req, res) => {
-//     res.send('<h1>Your weather</h1>')
-//    })
-
-// app.listen(3000, () =>  {
-//     console.log('server is up on port 3000')
-// })
 
 const path = require('path') //path is core node modeule so that we can export directly html css file from a seperate folder
 const express = require('express')
@@ -55,6 +6,7 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 const app = express()
+const port=process.env.PORT || 3000 
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -156,6 +108,6 @@ app.get('*', (req, res) => {
     })
 })
 
-app.listen(3000, () => { //app.listen... to startup the server
-    console.log('Server is up on port 3000.')
+app.listen(port, () => { //app.listen... to startup the server
+    console.log('Server is up on port '+port + '.' )
 })
